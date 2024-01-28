@@ -84,10 +84,10 @@ export default function Tasks() {
       const docRef = doc(db, "tarefas", id);
       const snapshot = await getDoc(docRef);
       if (snapshot.data() === undefined) {
-        return redirect("/");
+        return redirect("${process.env.NEXT_PUBLIC_URL}");
       }
       if (!snapshot.data()?.public) {
-        return redirect("/");
+        return redirect("${process.env.NEXT_PUBLIC_URL}");
       }
       const miliseconds = snapshot.data()?.created?.seconds * 1000;
       const task: TaskProps = {

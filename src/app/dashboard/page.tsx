@@ -183,5 +183,5 @@ export default function Dashboard() {
       </div>
     );
   }
-  return redirect("/");
+  return redirect("${process.env.NEXT_PUBLIC_URL}");
 }
