@@ -17,6 +17,7 @@ import {
   query,
 } from "firebase/firestore";
 import Link from "next/link";
+import { toast, useToast } from "@/components/ui/use-toast";
 
 interface TasksProps {
   id: string;
@@ -121,6 +122,12 @@ export default function Dashboard() {
                   </label>
                 </div>
                 <button
+                  onClick={() => {
+                    toast({
+                      title: "Tarefa cadastrada",
+                      description: `${new Date().toLocaleString()}`,
+                    });
+                  }}
                   type="submit"
                   className="w-full border-none rounded-md text-white bg-sky-600 h-[50px] text-lg font-semibold"
                 >
@@ -171,7 +178,13 @@ export default function Dashboard() {
                   )}
                   <button
                     className="cursor-pointer bg-transparent border-none mr-2 ml-2"
-                    onClick={() => handleDeleteTask(item.id)}
+                    onClick={() => {
+                      handleDeleteTask(item.id);
+                      toast({
+                        title: "Tarefa deletada",
+                        description: `${new Date().toLocaleString()}`,
+                      });
+                    }}
                   >
                     <FaTrash size={24} color="#ea3140" />
                   </button>

@@ -4,6 +4,7 @@ import hero from "../../public/hero.png";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "./services/firebaseConection";
 import { useEffect, useState } from "react";
+import { toast } from "@/components/ui/use-toast";
 
 export default function Home() {
   const [comments, setComments] = useState<number>(0);
@@ -58,6 +59,7 @@ export default function Home() {
             className="bg-white px-[44px] py-[14px] rounded-[4px] hover:scale-110 transition duration-75 ease-in-out"
           >
             <span>+{comments} comentarios</span>
+            <button>Clica aqui por favor</button>
           </section>
         </div>
       </div>
