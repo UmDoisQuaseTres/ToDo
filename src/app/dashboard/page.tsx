@@ -17,7 +17,7 @@ import {
   query,
 } from "firebase/firestore";
 import Link from "next/link";
-import { Toaster, toast } from "sonner";
+import { toast } from "sonner";
 
 interface TasksProps {
   id: string;

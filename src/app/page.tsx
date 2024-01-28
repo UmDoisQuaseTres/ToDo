@@ -52,13 +52,13 @@ export default function Home() {
             id="box"
             className="bg-white px-[44px] py-[14px] rounded-[4px] hover:scale-110 transition duration-75 ease-in-out"
           >
-            <span>+{posts} posts</span>
+            <span className="text-black">+{posts} posts</span>
           </section>
           <section
             id="box"
             className="bg-white px-[44px] py-[14px] rounded-[4px] hover:scale-110 transition duration-75 ease-in-out"
           >
-            <span>+{comments} comentarios</span>
+            <span className="text-black">+{comments} comentarios</span>
           </section>
         </div>
       </div>
