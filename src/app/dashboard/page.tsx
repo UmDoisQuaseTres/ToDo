@@ -17,7 +17,7 @@ import {
   query,
 } from "firebase/firestore";
 import Link from "next/link";
-import { toast, useToast } from "@/components/ui/use-toast";
+import { Toaster, toast } from "sonner";
 
 interface TasksProps {
   id: string;
@@ -73,7 +73,12 @@ export default function Dashboard() {
         user: session?.user?.email,
         public: publicTask,
       });
-
+      toast.success("Tarefa cadastrada com sucesso!", {
+        style: {
+          background: "#dedede",
+        },
+        className: "class",
+      });
       setInput("");
       setPublicTask(false);
     } catch (err) {
@@ -88,6 +93,12 @@ export default function Dashboard() {
   async function handleDeleteTask(id: string) {
     const docRef = doc(db, "tarefas", id);
     await deleteDoc(docRef);
+    toast("Tarefa deletada com sucesso!", {
+      style: {
+        background: "#dedede",
+      },
+      className: "class",
+    });
   }
 
   if (session) {
@@ -122,12 +133,6 @@ export default function Dashboard() {
                   </label>
                 </div>
                 <button
-                  onClick={() => {
-                    toast({
-                      title: "Tarefa cadastrada",
-                      description: `${new Date().toLocaleString()}`,
-                    });
-                  }}
                   type="submit"
                   className="w-full border-none rounded-md text-white bg-sky-600 h-[50px] text-lg font-semibold"
                 >
@@ -178,13 +183,7 @@ export default function Dashboard() {
                   )}
                   <button
                     className="cursor-pointer bg-transparent border-none mr-2 ml-2"
-                    onClick={() => {
-                      handleDeleteTask(item.id);
-                      toast({
-                        title: "Tarefa deletada",
-                        description: `${new Date().toLocaleString()}`,
-                      });
-                    }}
+                    onClick={() => handleDeleteTask(item.id)}
                   >
                     <FaTrash size={24} color="#ea3140" />
                   </button>

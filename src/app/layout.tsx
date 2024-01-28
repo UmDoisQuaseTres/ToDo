@@ -3,7 +3,8 @@ import { Roboto_Condensed } from "next/font/google";
 import Header from "@/components/Header";
 import "./globals.css";
 import SessionWrapper from "@/components/SessionWrapper";
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "../components/theme-provider";
 
 const roboto = Roboto_Condensed({
   subsets: ["latin"],
@@ -20,14 +21,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <SessionWrapper>
-      <html lang="en" className="bg-gray-100">
-        <body className={roboto.className}>
-          <Header />
-          <Toaster />
-          {children}
-        </body>
-      </html>
-    </SessionWrapper>
+    <html lang="en" suppressHydrationWarning>
+      <body className={roboto.className}>
+        <ThemeProvider>
+          <SessionWrapper>
+            <Header />
+            <Toaster closeButton={true} />
+            {children}
+          </SessionWrapper>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }

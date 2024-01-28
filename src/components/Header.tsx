@@ -1,6 +1,7 @@
 "use client";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
+import { ModeToggle } from "./ui/ModeToggle";
 
 export default function Header() {
   const { data: session } = useSession();
@@ -25,7 +26,11 @@ export default function Header() {
               <span className="font-semibold text-black">Meu painel</span>
             </Link>
           )}
+          <div className="ml-4">
+            <ModeToggle />
+          </div>
         </nav>
+
         {session ? (
           <button
             onClick={() => signOut()}

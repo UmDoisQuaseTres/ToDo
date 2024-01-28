@@ -15,6 +15,7 @@ import { redirect, usePathname } from "next/navigation";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import { FaTrash } from "react-icons/fa";
+import { toast } from "sonner";
 
 interface TaskProps {
   tarefa: string;
@@ -63,7 +64,12 @@ export default function Tasks() {
         name: session?.user?.name,
         taskId: id,
       });
-
+      toast.success("Tarefa cadastrada com sucesso!", {
+        style: {
+          background: "#dedede",
+        },
+        className: "class",
+      });
       const data = {
         id: docRef.id,
         comment: input,
@@ -128,6 +134,12 @@ export default function Tasks() {
       await deleteDoc(docRef);
       const deleteComment = comment.filter((item) => item.id !== id);
       setComment(deleteComment);
+      toast.success("Tarefa deletada com sucesso!", {
+        style: {
+          background: "#dedede",
+        },
+        className: "class",
+      });
     } catch (error) {
       console.log(error);
     }
