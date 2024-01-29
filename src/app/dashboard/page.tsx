@@ -195,5 +195,5 @@ export default function Dashboard() {
       </div>
     );
   }
-  return redirect("localhost");
+  return redirect("/");
 }
