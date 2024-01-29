@@ -41,7 +41,7 @@ export default function Header() {
         ) : (
           <button
             className="py-2 px-8 border-[1.5px] rounded-3xl text-white font-bold hover:bg-white hover:text-slate-950 hover:scale-110 transition duration-150 ease-in-out"
-            onClick={() => signIn("google")}
+            onClick={() => signIn("github, google")}
           >
             Acessar
           </button>
