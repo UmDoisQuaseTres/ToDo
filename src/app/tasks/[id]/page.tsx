@@ -63,12 +63,7 @@ export default function Tasks() {
         name: session?.user?.name,
         taskId: id,
       });
-      toast.success("Tarefa cadastrada com sucesso!", {
-        style: {
-          background: "#dedede",
-        },
-        className: "class",
-      });
+      toast.success("Comentário enviado com sucesso!");
       const data = {
         id: docRef.id,
         comment: input,
@@ -133,12 +128,7 @@ export default function Tasks() {
       await deleteDoc(docRef);
       const deleteComment = comment.filter((item) => item.id !== id);
       setComment(deleteComment);
-      toast.success("Comentário deletado com sucesso!", {
-        style: {
-          background: "#dedede",
-        },
-        className: "class",
-      });
+      toast.success("Comentário deletado com sucesso!");
     } catch (error) {
       console.log(error);
     }
