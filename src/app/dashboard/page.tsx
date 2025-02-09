@@ -19,6 +19,7 @@ import {
 import Link from "next/link";
 import { toast } from "sonner";
 
+//Interface
 interface TasksProps {
   id: string;
   created: Date;
@@ -33,6 +34,7 @@ export default function Dashboard() {
   const [publicTask, setPublicTask] = useState(false);
   const [tasks, setTasks] = useState<TasksProps[]>([]);
 
+  //Carregar as tarefas do DB
   useEffect(() => {
     async function loadTarefas() {
       const tarefasRef = collection(db, "tarefas");
@@ -60,9 +62,12 @@ export default function Dashboard() {
     loadTarefas();
   }, [session?.user?.email]);
 
+  //Mudando de privado para publico a tarefa
   function handleChangePublic(event: ChangeEvent<HTMLInputElement>) {
     setPublicTask(event.target.checked);
   }
+
+  //Adicionando tarefa no DB
   async function handleRegisterTask(event: FormEvent) {
     event.preventDefault();
     if (input === "") return;
@@ -73,32 +78,29 @@ export default function Dashboard() {
         user: session?.user?.email,
         public: publicTask,
       });
-      toast.success("Tarefa cadastrada com sucesso!", {
-        style: {
-          background: "#dedede",
-        },
-        className: "class",
-      });
+
+      //Notificacao toast
+
+      toast.success("Tarefa cadastrada com sucesso!");
       setInput("");
       setPublicTask(false);
     } catch (err) {
       console.log(err);
     }
   }
+
+  //Compartilhar tarefa
   async function handleShare(id: string) {
     await navigator.clipboard.writeText(
       `${process.env.NEXT_PUBLIC_URL}/tasks/${id}`
     );
   }
+
+  //Deletar tarefa
   async function handleDeleteTask(id: string) {
     const docRef = doc(db, "tarefas", id);
     await deleteDoc(docRef);
-    toast("Tarefa deletada com sucesso!", {
-      style: {
-        background: "#dedede",
-      },
-      className: "class",
-    });
+    toast("Tarefa deletada com sucesso!");
   }
 
   if (session) {
