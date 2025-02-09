@@ -26,7 +26,19 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem={true}>
           <SessionWrapper>
             <Header />
-            <Toaster theme="system" closeButton={true} />
+            <Toaster 
+  theme="system" 
+  closeButton={true}
+  className="dark:text-white text-black"
+  toastOptions={{
+    classNames: {
+      toast: "dark:bg-gray-800 dark:text-white text-black bg-white",
+      description: "dark:text-gray-200 text-gray-800",
+      actionButton: "dark:text-white text-black",
+      cancelButton: "dark:text-white text-black",
+    }
+  }}
+/>
             {children}
           </SessionWrapper>
         </ThemeProvider>
