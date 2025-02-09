@@ -138,7 +138,7 @@ export default function Tasks() {
       await deleteDoc(docRef);
       const deleteComment = comment.filter((item) => item.id !== id);
       setComment(deleteComment);
-      toast.success("Tarefa deletada com sucesso!", {
+      toast.success("Comentário deletado com sucesso!", {
         style: {
           background: "#dedede",
         },

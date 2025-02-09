@@ -4,7 +4,6 @@ import hero from "../../public/hero.png";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "./services/firebaseConection";
 import { useEffect, useState } from "react";
-import { toast } from "@/components/ui/use-toast";
 
 export default function Home() {
   const [comments, setComments] = useState<number>(0);
