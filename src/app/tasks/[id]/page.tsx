@@ -16,7 +16,6 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import { FaTrash } from "react-icons/fa";
 import { toast } from "sonner";
-import { Metadata } from "next";
 
 interface TaskProps {
   tarefa: string;
@@ -32,10 +31,6 @@ interface CommentsProps {
   name: string;
   taskId: string;
 }
-const metaData: Metadata = {
-  title: "Your Page Title",
-  // Add more metadata properties as needed
-};
 export default function Tasks() {
   //Retrieving the session
   const { data: session } = useSession();

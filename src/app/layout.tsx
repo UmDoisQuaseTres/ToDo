@@ -26,7 +26,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem={true}>
           <SessionWrapper>
             <Header />
-            <Toaster closeButton={true} />
+            <Toaster theme="system" closeButton={true} />
             {children}
           </SessionWrapper>
         </ThemeProvider>
