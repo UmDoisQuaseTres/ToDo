@@ -1,6 +1,6 @@
 # ToDoApp - Gerencie suas Tarefas com Facilidade e Eficiência
 
-![Imagem da Aplicação](link-para-imagem-da-sua-aplicacao.png)
+![Imagem da Aplicação](./public/ca.png)
 
 ## Descrição
 
@@ -13,9 +13,9 @@ Com o ToDoApp, você pode:
 *   **Marcar como Concluídas:** Acompanhe seu progresso marcando tarefas como concluídas e visualize seu histórico de realizações.
 *   **Interface Responsiva:** Acesse e gerencie suas tarefas de qualquer dispositivo, seja desktop, tablet ou smartphone, graças ao design responsivo.
 *   **Temas Personalizáveis:** Escolha entre temas claro e escuro para personalizar a aparência da aplicação de acordo com sua preferência.
-*   **Notificações (Opcional - Se Implementado):** Receba notificações (via Toaster) para lembretes de tarefas e atualizações importantes.
-*   **Autenticação de Usuários (Opcional - Se Implementado):** Crie contas de usuário para manter suas tarefas privadas e seguras.
-*   **Sincronização em Tempo Real (Se Implementado com Firebase):**  Acesse suas tarefas de qualquer lugar e veja as atualizações em tempo real (se você implementou essa funcionalidade com o Firebase).
+*   **Notificações (Parcialmente implementado):** Receba notificações (via Toaster) para lembretes de tarefas e atualizações importantes. Por hora, apenas criação, exclusão e adição de tarefas e comentários possuem notificação.
+*   **Autenticação de Usuários:** Crie contas de usuário para manter suas tarefas privadas e seguras.
+*   **Sincronização em Tempo Real:**  Acesse suas tarefas de qualquer lugar e veja as atualizações em tempo real (se você implementou essa funcionalidade com o Firebase).
 
 ## Tech Stack
 
@@ -27,7 +27,7 @@ Este projeto foi construído utilizando as seguintes tecnologias:
     *   **Tailwind CSS:** Framework CSS utilitário para estilização rápida e consistente, permitindo criar interfaces bonitas e responsivas com facilidade.
     *   **shadcn/ui:** Conjunto de componentes de interface de usuário reutilizáveis e acessíveis, construídos sobre Radix UI e Tailwind CSS, para acelerar o desenvolvimento e garantir uma experiência de usuário de alta qualidade.
     *   **sonner (Toaster):** Biblioteca para exibir notificações "toast" elegantes e informativas para feedback do usuário.
-*   **Backend e Banco de Dados (Opcional, Dependendo da Implementação):**
+*   **Backend e Banco de Dados:**
     *   **Firebase:** Plataforma Backend-as-a-Service (BaaS) do Google para autenticação, banco de dados (Firestore ou Realtime Database), e outras funcionalidades backend (se você utilizou Firebase para backend).
 
 ## Funcionalidades Principais
@@ -40,8 +40,8 @@ Este projeto foi construído utilizando as seguintes tecnologias:
 *   Responsividade para diferentes dispositivos.
 *   Temas claro e escuro com animação suave.
 *   Notificações informativas via Toaster.
-*   (Opcional) Autenticação de usuários para segurança e personalização.
-*   (Opcional) Sincronização de dados em tempo real via Firebase.
+*   Autenticação de usuários para segurança e personalização.
+*   Sincronização de dados em tempo real via Firebase.
 
 ## Começando
 
