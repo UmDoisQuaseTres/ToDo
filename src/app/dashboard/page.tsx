@@ -50,7 +50,7 @@ export default function Dashboard() {
           lista.push({
             id: doc.id,
             tarefa: doc.data().tarefa,
-            created: doc.data().created,
+            created: doc.data().created.toDate(),
             user: doc.data().user,
             public: doc.data().public,
           });
@@ -190,6 +190,10 @@ export default function Dashboard() {
                     <FaTrash size={24} color="#ea3140" />
                   </button>
                 </div>
+                {/* Mostrar a data de criação aqui */}
+                <p className="text-sm text-gray-500 mt-2">
+                  Criado em: {new Date(item.created).toLocaleDateString('pt-BR')}
+                </p>
               </article>
             ))}
           </section>
