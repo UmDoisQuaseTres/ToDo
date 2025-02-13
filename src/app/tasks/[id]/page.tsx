@@ -63,7 +63,11 @@ export default function Tasks() {
         name: session?.user?.name,
         taskId: id,
       });
-      toast.success("Comentário enviado com sucesso!");
+      toast.success("Comentário enviado com sucesso!", {
+        style: { 
+          backgroundColor: 'green', color: 'white'
+        }
+      });
       const data = {
         id: docRef.id,
         comment: input,
